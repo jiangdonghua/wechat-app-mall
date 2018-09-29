@@ -1,0 +1,10 @@
+{
+    "navigationBarTitleText": "我的位置",
+    "enablePullDownRefresh": false,
+    "usingComponents":{
+        "wxc-avatar": "../../libs/packages/@minui/wxc-avatar/dist/index",
+        "wxc-button": "../../libs/packages/@minui/wxc-button/dist/index",
+        "wxc-icon": "../../libs/packages/@minui/wxc-icon/dist/index",
+        "wxc-label": "../../libs/packages/@minui/wxc-label/dist/index"
+    }
+}

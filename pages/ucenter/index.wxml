@@ -1,0 +1,123 @@
+<view class="container">
+  <view class="userBox">
+    <view wx:if="{{userInfo}}" class="userinfo">
+      <wxc-avatar class="userinfo-avatar" src="{{userInfo.avatarUrl}}"> </wxc-avatar>
+      <view class="userinfo-text">
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        <view class="block10"> </view>
+        <!-- 部分未通过认证的开发者无权限获得用户绑定电话信息，故暂时隐藏此功能。具体可见微信官方https://developers.weixin.qq.com/miniprogram/dev/api/getPhoneNumber.html -->
+        <!--<wxc-label wx:if="{{userMobile}}" class="phoneNumber" type='fill' type-color="#747ba1">
+            {{userMobile}}
+          </wxc-label>
+          <button wx:else class="pin-phoneNumber" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" size='min'>
+            点击绑定手机号码
+          </button>-->
+      </view>
+    </view>
+    <view wx:else class="userinfo">
+      <wxc-avatar class="userinfo-avatar-no" mold="square" src="https://cdn.it120.cc/apifactory/2018/06/10/527a0d6e3b3f1ffc32748193d743da26.jpg" bindtap="relogin"> </wxc-avatar>
+      <view class="userinfo-text">
+        <text class="userinfo-nickname">欢迎您 ，👆 点我登陆</text>
+        <view class="block10"> </view>
+      </view>
+    </view>
+    <view class="userInfoMask"> </view>
+    <wxc-button  wx:if="{{score_sign_continuous===0}}" bindtap="scoresign" class="my-sign" size="small" type="beauty" value="每日签到"> </wxc-button>
+    <wxc-button class="my-sign" wx:if="{{score_sign_continuous>0}}" size="small" type="danger" value="已连续签到{{score_sign_continuous}}天" bindtap="scoresign"> </wxc-button>
+  </view>
+  <!--积分部分-->
+  <view class="h-contents">
+    <view class="a-item" bindtap="scoreDetail">
+      <wxc-icon type="purse" size="{{iconSize-10}}" color="#69c3aa" class="icon"> </wxc-icon>
+      <view class="my">
+        积分:
+        <text class="text">{{score}}</text>
+      </view>
+    </view>
+    <view class="a-item">
+      <wxc-icon type="yen" size="{{iconSize-10}}" color="#666666" class="icon"> </wxc-icon>
+      <view class="my">
+        余额:
+        <text class="text text1">{{balance}}</text>
+      </view>
+    </view>
+    <view class="a-item">
+      <wxc-icon type="after-sales" size="{{iconSize-10}}" color="#FF5777" class="icon"> </wxc-icon>
+      <view class="my">
+        提现中:
+        <text class="text text2">{{freeze}}</text>
+      </view>
+    </view>
+    <view class='a-item-no-right-border'>
+      <wxc-button type="info" size="small" value="充值" bindclick="recharge"> </wxc-button>
+      <view style='height:8rpx;'> </view>
+      <wxc-button type="beauty" size="small" value="提现" bindclick="withdraw"> </wxc-button>
+    </view>
+  </view>
+  <!--用户菜单-->
+  <view class="user-menu">
+    <view class="item">
+      <navigator url="/pages/order-list/index" hover-class="none" class="a">
+        <wxc-icon type='feedback' size='{{iconSize}}' color='{{iconColor}}' class="icon"> </wxc-icon>
+        <text class="txt">订单管理</text>
+      </navigator>
+    </view>
+    <view class="item">
+      <navigator url="/pages/select-address/index" hover-class="none" class="a">
+        <wxc-icon type='address' size='{{iconSize}}' color='{{iconColor}}' class="icon"> </wxc-icon>
+        <text class="txt">收货地址</text>
+      </navigator>
+    </view>
+    <view class="item no-border-right">
+      <navigator url="/pages/location/index" hover-class="none" class="a">
+        <wxc-icon type='location' size='{{iconSize}}' color='{{iconColor}}' class="icon"> </wxc-icon>
+        <text class="txt">到店里</text>
+      </navigator>
+    </view>
+    <view class="item">
+      <navigator url="/pages/mycoupons/index" hover-class="none" class="a">
+        <wxc-icon type='coupon' size='{{iconSize}}' color='{{iconColor}}' class="icon"> </wxc-icon>
+        <text class="txt">优惠券</text>
+      </navigator>
+    </view>
+    <view class="item">
+      <navigator url="" hover-class="none" class="a">
+        <wxc-icon type='rate' size='{{iconSize}}' color='lightgray' class="icon"> </wxc-icon>
+        <text class="txt disabled">积分兑换</text>
+      </navigator>
+    </view>
+    <view class="item no-border-right">
+      <navigator url="/pages/target/index" hover-class="none" class="a">
+        <wxc-icon type='footprint' size='{{iconSize}}' color='lightgray' class="icon"> </wxc-icon>
+        <text class="txt disabled">足迹</text>
+      </navigator>
+    </view>
+    <view class="item item-bottom" bindtap='makePhoneCall'>
+      <navigator url="" hover-class="none" class="a">
+        <wxc-icon type='group' size='{{iconSize}}' color='{{iconColor}}' class="icon"> </wxc-icon>
+        <text class="txt">联系客服</text>
+      </navigator>
+    </view>
+    <view class="item item-bottom" bindtap="aboutUs">
+      <navigator url="url" hover-class="none" class="a">
+        <wxc-icon type='help' size='{{iconSize}}' color='{{iconColor}}' class="icon"> </wxc-icon>
+        <text class="txt">关于我们</text>
+      </navigator>
+    </view>
+    <view class="item no-border-bottom">
+      <navigator url="/pages/ucenter/feedback/feedback" hover-class="none" class="a">
+        <wxc-icon type='comment' size='{{iconSize}}' color='{{iconColor}}' class="icon"> </wxc-icon>
+        <text class="txt">意见反馈</text>
+      </navigator>
+    </view>
+  </view>
+
+  <!--底部-->
+  <view class="block20"> </view>
+  <view class="my-item foot-msg">
+    <wxc-button type="danger" value="重新授权登录" bindclick="relogin"> </wxc-button>
+  </view>
+  <view class="version">Copyright © 2017-2018 jdh(GitHub ID)</view>
+  <view class='version version1' >Powered by EastWorld v {{version}}</view>
+  <view class="block20"></view>
+</view>

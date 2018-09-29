@@ -1,0 +1,26 @@
+<view class="container">
+    <view class="mark">
+        <view class="title">签到赠送积分规则</view>
+        <view class="markWrap">
+        <text wx:for="{{signRules}}" wx:key="{{index}}" class="markList">连续签到{{item.continuous}}天,赠送积分+{{item.score}}</text>
+    </view>
+    </view>
+    <text class="title">我的积分明细</text>
+    <view class="score-list">
+        <!--<view wx:if="{{signList}}" wx:for="{{signList}}" wx:key="{{index}}">-->
+            <!--<text>签到记录</text>-->
+            <!--<text>{{item.dateAdd}}</text>-->
+            <!--<text>连续签到</text>-->
+            <!--<text>{{item.continuous}}</text>天-->
+        <!--</view>-->
+
+        <view wx:if="{{scoreList}}" wx:for="{{scoreList}}" wx:key="{{index}}" class="sec-wrap sec-wrap-{{index==scoreList.length-1?'last':''}}" data-index="{{index}}">
+            <view class="left">
+                <text class="remark">{{item.remark}}</text>
+                <text class="date">{{item.dateAdd}}</text>
+            </view>
+            <view wx:if="{{item.behavior===0}}" class="right"><text class="behaviorStr">{{item.behaviorStr}}</text><text class="score">+{{item.score}}</text></view>
+            <view wx:if="{{item.behavior===1}}" class="right"><text class="behaviorStr">{{item.behaviorStr}}</text><text class="score">-{{item.score}}</text></view>
+        </view>
+    </view>
+</view>

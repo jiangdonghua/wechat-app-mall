@@ -1,0 +1,38 @@
+<view>
+    <view class='shopInfo'>
+        <view class='shopname'>
+            天降祥瑞：平高国际广场2612室
+        </view>
+        <view class='shopconnect'>
+            手机号：******(f先生)
+        </view>
+        <view class="tip">
+            (可直接在"我的"-->"客服电话"里联系店家)
+        </view>
+    </view>
+
+    <view class="mainView">
+        <map
+                class="mapView"
+                latitude="{{latitude}}"
+                longitude="{{longitude}}"
+                markers="{{markers}}"
+        >
+        </map>
+    </view>
+
+    <view class="head">
+        <view class='distanceTxt'>
+            <image class="icon" src="/images/more/run.png" mode="aspectFill"/>
+            <text>距离我约：{{meters}}km</text>
+        </view>
+        <view class="btnWrap">
+            <button bindtap="openTgLocation" class="button" type="primary">导航</button>
+            <button bindtap="openLocation"  class="button" type="primary">我的位置</button>
+        </view>
+        <view class="btnWrap">
+            <button bindtap="openUpdate" class="button" type="primary">开启实时更新</button>
+            <button bindtap="closeUpdate" class="button" type="primary">关闭实时更新</button>
+        </view>
+    </view>
+</view>

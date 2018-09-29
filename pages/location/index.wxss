@@ -1,0 +1,63 @@
+.shopInfo{
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    margin-bottom: 20rpx;
+}
+.shopname,.shopconnect,.tip{
+    margin-left: 20rpx;
+    width: 90%;
+}
+.shopname{
+    height: 50rpx;
+    padding-top: 30rpx;
+    font-size: 32rpx;
+    align-items: center;
+}
+
+.shopconnect{
+    height: 40rpx;
+    font-size: 28rpx;
+    align-items: center;
+}
+.tip{
+    height: 40rpx;
+    font-size: 28rpx;
+    align-items: center;
+
+}
+.mapView{
+    display: block;
+    align-items: center;
+    width: 100%;
+    height: 680rpx;
+    /*padding: 0 20rpx;*/
+    /*box-sizing: border-box;*/
+}
+
+.head{
+    flex-direction:row;
+}
+.distanceTxt{
+    display: flex;
+    flex-direction: row;
+    padding: 20rpx;
+    font-size: 32rpx;
+
+}
+.icon{
+    width:50rpx;
+    height:30rpx;
+    margin-right:20rpx;
+    margin-top:8rpx;
+}
+.btnWrap{
+    display: flex;
+}
+.button{
+    width: 280rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 32rpx;
+    margin-bottom:10rpx;
+}

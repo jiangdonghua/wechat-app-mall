@@ -1,0 +1,85 @@
+<!--index.wxml-->
+<!--1px = 750/320 = 2.34rpx;-->
+<!--<import src="../../templates/recommend-goods-item/recommend-goods-item.wxml" />-->
+<import src="../../templates/wxSearch/wxSearch.wxml" />
+
+<view class="container" style='background: -webkit-linear-gradient(top, rgba({{bgRed}},{{bgGreen}},{{bgBlue}}, 1), rgba({{bgRed}},{{bgGreen}},{{bgBlue}}, 0.7));'>
+<!--搜索框-->
+  <view class="search-view" style="background:-webkit-linear-gradient(top, rgba({{bgRed}},{{bgGreen}},{{bgBlue}}, 1), rgba({{bgRed}},{{bgGreen}},{{bgBlue}}, 0.7)); ">
+    <view class="search-content">
+      <view class='search-icon-view'>
+        <wxc-icon class='search-icon' type='search-square' size='40' color='#69c3aa'> </wxc-icon>
+      </view>
+      <input placeholder="请输入搜索内容" class="search-input" maxlength="30" confirm-type="search" bindinput='wxSearchInput' value='{{keyword}}' bindconfirm='wxSearchFn' bindfocus="wxSearchFocus" bindblur="wxSearchBlur" type="search">
+      </input>
+      <button class='search-btn' bindtap="wxSearchFn">搜索</button>
+    </view>
+    <template is="wxSearch" data="{{wxSearchData}}" />
+  </view>
+
+  <view style='height:100rpx;'> </view>
+<!--标题-->
+  <view wx:if='{{!hasNoCoupons}}' class="introduced">
+    <image class="introduced-img" src="{{couponsTitlePicStr}}"> </image>
+    <wxc-loadmore class='introduced-text' is-end="{{true}}" text="店铺优惠券"> </wxc-loadmore>
+  </view>
+
+  <wxc-flex wx:if='{{!hasNoCoupons}}' class='coupons' cross="center" wrap='wrap'>
+    <!--优惠券加载状态-->
+    <wxc-toast wx:if="{{!networkStatus}}" is-show="{{true}}" text="联网失败，请刷新重试" icon="warning" icon-color="#ff5777"> </wxc-toast>
+    <wxc-toast wx:if="{{couponsStatus===0}}" is-show="{{true}}" text="优惠券加载中···"> </wxc-toast>
+    <wxc-toast wx:elif="{{couponsStatus===1}}" is-show="{{true}}" text="加载成功" icon="yes"> </wxc-toast>
+    <wxc-toast wx:elif="{{couponsStatus===2}}" is-show="{{true}}" text="暂无优惠券可领" icon="no"> </wxc-toast>
+    <!--优惠券列表-->
+    <!--wx:for等价与wx:for-items是循环数组用的 wx:for-item则是给列表赋别名用的-->
+    <view class="coupons-item" wx:for-items="{{coupons}}" wx:for-index="idx" wx:key="id" bindtap="gitCoupon" data-id="{{item.id}}" data-type="{{item.type}}">
+      <view class='coupons-date-money'>
+        <view class='coupons-money'>
+          <text class="coupons-money-1">¥<text class="moneyMax">{{item.moneyMax}}</text>
+          </text>
+          <view  class="limit">
+            <text>满</text><text>{{item.moneyHreshold}}</text><text>元使用</text>
+          </view>
+
+        </view>
+        <view class='coupons-info'>
+
+          <text wx:if="{{item.dateEndType == 0}}"> {{item.dateEnd}} </text>
+          <text wx:if="{{item.dateEndType == 0}}"> 前有效\n </text>
+          <text wx:if="{{item.dateEndType == 1}}"> 领取后 </text>
+          <text wx:if="{{item.dateEndType == 1}}"> {{item.dateEndDays}}</text>
+          <text wx:if="{{item.dateEndType == 1}}"> 天内有效</text>
+        </view>
+
+      </view>
+      <view class='coupons-name'>
+        <text> {{item.name}}</text>
+      </view>
+    </view>
+    <wxc-toast wx:if="{{getCoupStatus===0}}" is-show="{{true}}" text="来晚了,优惠券已领完~" icon="no"> </wxc-toast>
+    <wxc-toast wx:elif="{{getCoupStatus===1}}" is-show="{{true}}" text="领取成功，赶紧去下单吧~" icon="yes" icon-color="#ff5777"> </wxc-toast>
+    <wxc-toast wx:elif="{{getCoupStatus===2}}" is-show="{{true}}" text="你领过了，别贪心哦~" icon="no"> </wxc-toast>
+    <wxc-toast wx:elif="{{getCoupStatus===3}}" is-show="{{true}}" text="您的积分不足~" icon="no"> </wxc-toast>
+    <wxc-toast wx:elif="{{getCoupStatus===4}}" is-show="{{true}}" text="已过期~" icon="no"> </wxc-toast>
+      <wxc-toast wx:elif="{{getCoupStatus===5}}" is-show="{{true}}" text="口令不正确~" icon="no"> </wxc-toast>
+      <wxc-toast wx:elif="{{getCoupStatus===6}}" is-show="{{true}}" text="当前优惠券已不能领取~" icon="no"> </wxc-toast>
+    <view style='width: 100%;height: 10rpx;'> </view>
+  </wxc-flex>
+
+  <!--拼团开团-->
+
+</view>
+
+<view class='more-things'>
+  <image src='https://cdn.it120.cc/apifactory/2017/12/27/605e53ea7d6cab4c289d8357b6ff0e2e.png' style='width:450rpx;height:220rpx;'>
+  </image>
+</view>
+
+<vas-prompt id="prompt"
+            title='请输入口令'
+            type="text"
+            btn_certain='确定'
+            bind:getInput="getInput"
+            bind:cancel="cancel"
+            bind:confirm="confirm">
+</vas-prompt>

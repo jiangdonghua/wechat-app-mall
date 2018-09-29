@@ -1,0 +1,182 @@
+/* pages/finder/index.wxss */
+
+/**index.wxss**/
+
+@import "../../templates/wxSearch/wxSearch.wxss";
+
+.page {
+  min-height: 100%;
+}
+
+.container {
+  min-height: 100%;
+}
+
+.introduced {
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+}
+
+.introduced .introduced-img {
+  width: 89rpx;
+  height:89rpx;
+  border-radius: 50%;
+}
+
+.introduced .introduced-text {
+  font-size: 32rpx;
+}
+.loadmore_text{
+  margin-top: -1rpx;
+}
+.search-view {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 500;
+  width: 100%;
+  height: 100rpx;
+  background: gray;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-content {
+  position: fixed;
+  top: 0;
+  z-index: 501;
+  width: 100%;
+  height: 70rpx;
+  padding: 0 50rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.search-icon-view{
+  width:70rpx;
+  height:70rpx;
+  background-color:white;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  border-top-left-radius: 10rpx;
+  border-bottom-left-radius: 10rpx;
+}
+
+.search-icon {
+  margin-left: 15rpx;
+}
+
+.search-input {
+  width: 450rpx;
+  height: 70rpx;
+  font-size: 28rpx;
+  background-color: white;
+}
+
+.search-btn {
+  width: 130rpx;
+  height: 70rpx;
+  margin-left: 0;
+  background-color: blueviolet;
+  font-size: 28rpx;
+  border-top-left-radius: 0rpx;
+  border-bottom-left-radius: 0rpx;
+  color: #fff;
+  border: none;
+}
+
+.coupons {
+  width: 100%;
+  height: auto;
+ padding: 20rpx 0;
+  background-color: #efefef;
+
+}
+.coupons>view{
+  display: flex;
+  justify-content: space-around;
+}
+.coupons-item {
+  display: flex;
+  width:340rpx;
+  height:176rpx;
+  margin: 10rpx 5rpx;
+  background:#efefef url(https://misc.360buyimg.com/user/quan/3.0.0/widget/quan-index/i/quan-bg.png) 0 0 no-repeat;
+  background-size: 340rpx 176rpx;
+  box-sizing: content-box;
+  font-size: 20rpx;
+  overflow: hidden;
+  border-radius: 10rpx;
+}
+
+.coupons-date-money {
+  width: 81.5%;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.coupons-date-money .coupons-info {
+  width:100%;
+  display: block;
+  white-space: pre-line;
+  text-align: center;
+  color: #fff;
+  font-size: 26rpx;
+}
+.fl{
+  float: left;
+}
+.coupons-date-money .coupons-money {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24rpx;
+  text-align: center;
+  color: yellow;
+  overflow: hidden;
+}
+.coupons-date-money .coupons-money-1{
+  display: inline;
+}
+.coupons-date-money .coupons-money .limit{
+  padding:0 5rpx;
+  margin-left: 5rpx;
+  display: inline;
+  background-color: rgba(255,255,255,.7);
+  color:#f23030;
+}
+.coupons-date-money .coupons-money .moneyMax{
+  font-size: 36rpx;
+}
+.coupons-name {
+  flex:0 0 18.5%;
+  font-size: 30rpx;
+  color: #666;
+}
+.coupons-name text{
+  display: flex;
+  height: 100%;
+  width: 50%;
+  margin: 0 25%;
+  color: #fff;
+  text-align: center;
+  word-wrap: break-word;
+  align-items: center;
+  justify-content:center;
+}
+.more-things {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

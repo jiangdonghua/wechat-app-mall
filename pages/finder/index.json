@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "发现实惠",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "wxc-icon": "../../libs/packages/@minui/wxc-icon/dist/index",
+    "wxc-flex": "../../libs/packages/@minui/wxc-flex/dist/index",
+    "wxc-loadmore": "../../libs/packages/@minui/wxc-loadmore/dist/index",
+    "wxc-label": "../../libs/packages/@minui/wxc-label/dist/index",
+    "wxc-toast": "../../libs/packages/@minui/wxc-toast/dist/index",
+    "vas-prompt": "../../templates/prompt/prompt"
+  }
+}

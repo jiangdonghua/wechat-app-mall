@@ -1,0 +1,73 @@
+page{
+  min-height: 100%;
+  background-color: #F2f2f2;
+}
+.container{
+  min-height: 100%;
+  overflow: hidden;
+}
+.score-list{
+    width: 100%;
+}
+.mark{
+    width: 100%;
+}
+.markWrap{
+    background-color: #fff;
+    width: 100%;
+    padding: 10rpx 20rpx;
+    box-sizing: border-box;
+}
+.markTitle{
+    font-size: 26rpx;
+    padding: 10rpx 20rpx;
+}
+.markList{
+    font-size: 24rpx;
+    color: #999;
+    padding-right: 20rpx;
+}
+.title{
+    width: 100%;
+    font-size: 26rpx;
+    text-align: left;
+    padding: 10rpx 20rpx;
+    box-sizing: border-box;
+    color: #666;
+}
+
+.sec-wrap{
+    width: 100%;
+    display: flex;
+    padding: 20rpx 20rpx;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    box-sizing: border-box;
+    border-bottom: 1rpx dashed #C4C4C4;
+    font-size: 28rpx;
+}
+/*.sec-wrap:last-child{*/
+    /*border-bottom: 0;*/
+/*}*/
+.sec-wrap-last{
+    border-bottom: 0;
+}
+.sec-wrap .left,.sec-wrap .right{
+    display: flex;
+    flex-direction: column;
+}
+.sec-wrap .remark,.sec-wrap .behaviorStr{
+    font-size: 30rpx;
+    color: #666;
+}
+.sec-wrap .date{
+    font-size: 28rpx;
+    color: #999;
+}
+
+.sec-wrap .score{
+    font-size: 28rpx;
+    color: #FF5777;
+}
+
